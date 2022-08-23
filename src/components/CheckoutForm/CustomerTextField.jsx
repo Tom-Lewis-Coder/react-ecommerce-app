@@ -15,6 +15,7 @@ const FormInput = ({ name, label }) => {
                     <TextField 
                         fullWidth
                         label={label}
+                        field={field}
                     />
                 )}
             />

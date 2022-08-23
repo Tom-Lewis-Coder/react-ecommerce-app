@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Buton } from '@material-ui/core'
+import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button } from '@material-ui/core'
 import { commerce } from '../../../lib/commerce'
 import useStyles from './styles.js'
 import AddressForm from '../AddressForm.jsx'
@@ -30,9 +30,11 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
     const next = (data) => {
         setShippingData(data)
+        console.log(shippingData)
 
         nextStep()
     }
+    console.log(shippingData)
 
     const Confirmation = () => (
         <div>
@@ -48,7 +50,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         nextStep={nextStep}
         backStep={backStep} 
         onCaptureCheckout={onCaptureCheckout}  
-        />
+    />
 
   return (
       <>

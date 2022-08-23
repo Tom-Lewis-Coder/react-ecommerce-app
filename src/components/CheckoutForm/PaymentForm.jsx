@@ -46,6 +46,7 @@ const PaymentForm = ({ shippingData, checkoutToken, backStep, onCaptureCheckout,
   }
 
   console.log(checkoutToken)
+  console.log(shippingData)
 
   return (
     <>
