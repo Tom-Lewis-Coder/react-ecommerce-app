@@ -13,9 +13,10 @@ const FormInput = ({ name, label }) => {
                 name={name}
                 render = {({ field }) => (
                     <TextField 
-                        fullWidth
+                        {...field}
                         label={label}
-                        field={field}
+                        fullWidth
+                        error={isError}
                     />
                 )}
             />

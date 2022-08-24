@@ -6,6 +6,7 @@ import { loadStripe } from '@stripe/stripe-js'
 import Review from './Review'
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
+console.log(stripePromise)
 
 const PaymentForm = ({ shippingData, checkoutToken, backStep, onCaptureCheckout, nextStep }) => {
 
@@ -28,8 +29,16 @@ const PaymentForm = ({ shippingData, checkoutToken, backStep, onCaptureCheckout,
           name: 'Primary', 
           street: shippingData.address1, 
           town_city: shippingData.city,
-          postal_zip_code: shippingData.zip,
-          country: shippingData.country,
+          postal_zip_code: shippingData.postcode,
+          country: shippingData.shippingCountry,
+        },
+        billing: { 
+          name: shippingData.lastName, 
+          street: shippingData.address1, 
+          town_city: shippingData.city,
+          postal_zip_code: shippingData.postcode,
+          county_state: shippingData.shippingSubdivision,
+          country: shippingData.shippingCountry,
         },
         fulfillment: { shipping_method: shippingData.shippingOption },
         payment: {
@@ -47,6 +56,7 @@ const PaymentForm = ({ shippingData, checkoutToken, backStep, onCaptureCheckout,
 
   console.log(checkoutToken)
   console.log(shippingData)
+  
 
   return (
     <>
