@@ -3,7 +3,7 @@ import { AppBar, Toolbar,  IconButton, Badge, MenuItem, Menu, Typography } from 
 import { ShoppingCart } from '@material-ui/icons'
 import { Link, useLocation } from 'react-router-dom'
 
-import logo from '../../Assets/Tombone.png'
+import logo from '../../Assets/tCommerce.png'
 import useStyles from './styles'
 
 const Navbar = ({ totalItems }) => {
