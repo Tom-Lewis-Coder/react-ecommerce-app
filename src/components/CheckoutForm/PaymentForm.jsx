@@ -6,9 +6,8 @@ import { loadStripe } from '@stripe/stripe-js'
 import Review from './Review'
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
-console.log(stripePromise)
 
-const PaymentForm = ({ shippingData, checkoutToken, backStep, onCaptureCheckout, nextStep }) => {
+const PaymentForm = ({ shippingData, checkoutToken, backStep, onCaptureCheckout, nextStep, timeout }) => {
 
   const handleSubmit = async (event, elements, stripe) => {
     event.preventDefault()
@@ -33,7 +32,7 @@ const PaymentForm = ({ shippingData, checkoutToken, backStep, onCaptureCheckout,
           country: shippingData.shippingCountry,
         },
         billing: { 
-          name: shippingData.lastName, 
+          name: `${shippingData.firstName} ${shippingData.lastName}`, 
           street: shippingData.address1, 
           town_city: shippingData.city,
           postal_zip_code: shippingData.postcode,
@@ -49,6 +48,8 @@ const PaymentForm = ({ shippingData, checkoutToken, backStep, onCaptureCheckout,
         }  
       }
       onCaptureCheckout(checkoutToken.id, orderData)
+
+      timeout()
 
       nextStep()
     }
