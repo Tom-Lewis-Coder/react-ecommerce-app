@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button, CssBaseline } from '@material-ui/core'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { commerce } from '../../../lib/commerce'
 import useStyles from './styles.js'
 import AddressForm from '../AddressForm.jsx'
@@ -15,13 +15,17 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     const [ isFinished, setIsFinished ] = useState(false)
     const classes = useStyles()
 
+    const BackToProducts = () => {
+        useNavigate('/')
+    }
+
     useEffect(() => {
         const generateToken = async () => {
             try {
                 const token = await commerce.checkout.generateToken(cart.id, { type: 'cart' })
                 setCheckoutToken(token)
             } catch (error) {
-
+                BackToProducts()
             }
         }
         generateToken()
