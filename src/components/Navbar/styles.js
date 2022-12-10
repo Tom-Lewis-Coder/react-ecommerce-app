@@ -19,6 +19,12 @@ export default makeStyles((theme) => ({
     },
     image: {
         marginRight: '10px',
+        alignItems: 'center',
+    },
+    navbarLinkItems: {
+        paddingRight: '20px',
+        textDecoration: 'none',
+        color: 'black',
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -32,7 +38,7 @@ export default makeStyles((theme) => ({
     search: {
         position: 'relative',
         borderRdius: theme.shape.borderRadius,
-        backgroundColor: alpha(theme.palette.common.white, 0.15),
+        backgroundColor: 'black',
         '&:hover': {
             backgroundColor: alpha(theme.palette.common.white, 0.25),
         },

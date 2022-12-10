@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppBar, Toolbar,  IconButton, Badge, MenuItem, Menu, Typography } from '@material-ui/core'
+import { AppBar, Toolbar,  IconButton, Badge, Typography } from '@material-ui/core'
 import { ShoppingCart } from '@material-ui/icons'
 import { Link, useLocation } from 'react-router-dom'
 
@@ -19,7 +19,7 @@ const Navbar = ({ totalItems }) => {
                     tCommerce
                 </Typography>
                 <div className={classes.grow} />
-                { location.pathname === '/' && (
+                { location.pathname === '/products' && (
                 <div className={classes.button}>
                     <IconButton aria-label='show cart items' color='inherit' component={Link} to='/cart'>
                         <Badge badgeContent={totalItems} color='secondary' overlap="rectangular"></Badge>

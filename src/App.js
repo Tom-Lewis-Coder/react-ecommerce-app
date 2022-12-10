@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { commerce } from './lib/commerce'
-import { Products, Navbar, Cart, Checkout } from './components'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Products, Navbar, Cart, Checkout, HomePage } from './components'
+import { Routes, Route, useLocation } from 'react-router-dom'
 
 const App = () => {
     const [ products, setProducts ] = useState([])
     const [ cart, setCart ] = useState({})
     const [ order, setOrder ] = useState({})
     const [ errorMessage, setErrorMessage ] = useState('')
+
+    const location = useLocation()
 
     const fetchProducts = async () => {
         const { data } = await commerce.products.list()
@@ -59,11 +61,12 @@ const App = () => {
     }, [])
 
     return (
-        <Router>
             <div>
-                <Navbar totalItems={cart.total_items} />
+                {location.pathname === '/' ? null : <Navbar totalItems={cart.total_items} />}
                 <Routes>
-                    <Route path='/' element={
+                {console.log(useLocation())}
+                    <Route path='/' element={<HomePage />} /> 
+                    <Route path='/products' element={
                         <Products 
                             products={products} 
                             onAddToCart={handleAddToCart} 
@@ -87,7 +90,7 @@ const App = () => {
                     />
                 </Routes>    
             </div>
-        </Router>
+
     )
 }
 
