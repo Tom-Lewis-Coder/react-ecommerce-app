@@ -36,11 +36,9 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
     const next = (data) => {
         setShippingData(data)
-        console.log(shippingData)
 
         nextStep()
     }
-    console.log(shippingData)
 
     const timeout = () => {
         setTimeout(() => {

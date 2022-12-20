@@ -1,6 +1,6 @@
 import React from 'react'
 import { AppBar, Toolbar,  IconButton, Badge, Typography } from '@material-ui/core'
-import { ShoppingCart } from '@material-ui/icons'
+import { ShoppingCart, Backspace } from '@material-ui/icons'
 import { Link, useLocation } from 'react-router-dom'
 
 import logo from '../../Assets/tCommerce.png'
@@ -26,6 +26,13 @@ const Navbar = ({ totalItems }) => {
                         <ShoppingCart />
                     </IconButton>
                 </div> )}
+                { location.pathname === '/cart' && (
+                    <div className={classes.button}>
+                        <IconButton aria-label='back to product page' color='inherit' component={Link} to='/products'>
+                            <Backspace />
+                        </IconButton>
+                    </div>
+                )}
             </Toolbar>
         </AppBar>
     </div>

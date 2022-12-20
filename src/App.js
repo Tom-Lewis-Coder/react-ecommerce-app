@@ -64,7 +64,6 @@ const App = () => {
             <div>
                 {location.pathname === '/' ? null : <Navbar totalItems={cart.total_items} />}
                 <Routes>
-                {console.log(useLocation())}
                     <Route path='/' element={<HomePage />} /> 
                     <Route path='/products' element={
                         <Products 
