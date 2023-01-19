@@ -1,15 +1,19 @@
 import React from 'react'
+import { Typography, Button } from '@material-ui/core'
 import { Link } from 'react-router-dom'
-import './styles.css'
+// import './styles.css'
 
+import useStyles from './styles'
 
 const HomePage = () => {
 
+  const classes = useStyles()
+
   return (
-    <div className="container">
-        <div className="content">
-            <div className='title'>tCommerce</div>
-            <Link className='link' to='/products'>Enter</Link>
+    <div className={classes.container}>
+        <div className={classes.content}>
+            <Typography variant='h3' className={classes.title}>tCommerce</Typography>
+            <Button component={Link} to='/products' type='button' className={classes.button}>Enter</Button>
         </div>
     </div>
   )

@@ -24,7 +24,7 @@ export default makeStyles((theme) => ({
     navbarLinkItems: {
         paddingRight: '20px',
         textDecoration: 'none',
-        color: 'black',
+        color: theme.palette.black,
     },
     grow: {
         flexGrow: 1,
