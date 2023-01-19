@@ -13,7 +13,7 @@ const HomePage = () => {
     <div className={classes.container}>
         <div className={classes.content}>
             <Typography variant='h3' className={classes.title}>tCommerce</Typography>
-            <Button component={Link} to='/products' type='button' className={classes.button}>Enter</Button>
+            <Button component={Link} to='/products' size='large' type='button' className={classes.button}>Enter</Button>
         </div>
     </div>
   )

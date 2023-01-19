@@ -16,6 +16,7 @@ export default makeStyles((theme) => ({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        alignContent: 'flex-start',
         paddingTop: '40vh',
     },
     title: {
@@ -25,6 +26,8 @@ export default makeStyles((theme) => ({
         color: theme.palette.grey[600],
         textDecoration: 'underline',
         cursor: 'pointer',
+        width: '100px',
+        height: '50px',
       },
 }))
   
