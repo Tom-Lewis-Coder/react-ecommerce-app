@@ -1,7 +1,6 @@
 import React from 'react'
 import { Typography, Button } from '@material-ui/core'
 import { Link } from 'react-router-dom'
-// import './styles.css'
 
 import useStyles from './styles'
 
